@@ -64,6 +64,15 @@
             "Effect": "Allow",
             "Action": "ec2:DescribeAccountAttributes",
             "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::me.fabiooliveira.website.tfstate/*"
         }
     ]
 }
