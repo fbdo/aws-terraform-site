@@ -61,9 +61,6 @@ apply_job: &apply_job
 jobs:
 
   build:
-    branches:
-      only:
-        - master
     <<: *default_config
     steps:
       - checkout
@@ -132,9 +129,3 @@ workflows:
           filters:
             branches:
               only: master
-      - apply:
-          requires:
-            - plan
-          filters:
-            branches:
-              only: staging
