@@ -1,18 +1,15 @@
 provider "aws" {
-  region = "eu-central-1"
-  profile = "fabiooliveira_website"
+  region  = "eu-central-1"
   version = "~> 1.27"
 }
 
 terraform {
   backend "s3" {
-    bucket = "fabiooliveira-website-tfstate"
-    key = "website/terraform.tfstate"
+    bucket         = "me.fabiooliveira.website.tfstate"
+    key            = "website/terraform.tfstate"
     dynamodb_table = "fabiooliveira-website-tfstate-lock"
-    region = "eu-central-1"
-    profile = "fabiooliveira_website"
+    region         = "eu-central-1"
   }
-
 }
 
 module "website_with_cname" {
@@ -21,5 +18,5 @@ module "website_with_cname" {
   stage          = "prod"
   name           = "fabiooliveira"
   hostname       = "www.fabiooliveira.me"
-  parent_zone_id = "XXXXXXXXXXXX"
+  parent_zone_id = "Z2T01GNL4E6WCM"
 }
