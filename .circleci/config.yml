@@ -97,7 +97,7 @@ jobs:
           command: |
             source $BASH_ENV
             cd website
-            terraform plan -out=terraform.plan
+            terraform plan -out=~/cache/terraform.plan
       - persist_to_workspace:
           root: *working_directory
           paths:
