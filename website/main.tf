@@ -20,4 +20,6 @@ module "cdn" {
   name             = "fabiooliveira"
   aliases          = ["www.fabiooliveira.me","fabiooliveira.me"]
   parent_zone_id   = "Z2T01GNL4E6WCM"
+  compress         = true
+  viewer_protocol_policy = "allow-all"
 }
