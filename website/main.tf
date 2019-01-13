@@ -21,5 +21,4 @@ module "cdn" {
   parent_zone_id         = "Z2T01GNL4E6WCM"
   compress               = true
   viewer_protocol_policy = "allow-all"
-  default_ttl            = 3600
 }
