@@ -12,14 +12,13 @@ terraform {
   }
 }
 
-
 module "cdn" {
-  source           = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
-  namespace        = "website"
-  stage            = "prod"
-  name             = "fabiooliveira"
-  aliases          = ["www.fabiooliveira.me","fabiooliveira.me"]
-  parent_zone_id   = "Z2T01GNL4E6WCM"
-  compress         = true
+  source                 = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
+  namespace              = "website"
+  stage                  = "prod"
+  name                   = "fabiooliveira"
+  aliases                = ["www.fabiooliveira.me", "fabiooliveira.me"]
+  parent_zone_id         = "Z2T01GNL4E6WCM"
+  compress               = true
   viewer_protocol_policy = "allow-all"
 }
