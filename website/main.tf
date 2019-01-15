@@ -50,7 +50,7 @@ data "aws_iam_policy_document" "lambda" {
 }
 
 resource "aws_iam_role" "main" {
-  name_prefix        = "fabiooliveira.me_lambda_index_url_rewrite"
+  name_prefix        = "fabiooliveira.me_rewrite"
   assume_role_policy = "${data.aws_iam_policy_document.lambda.json}"
 }
 
@@ -68,5 +68,8 @@ module "cdn" {
   parent_zone_id              = "Z2T01GNL4E6WCM"
   compress                    = true
   viewer_protocol_policy      = "allow-all"
-  lambda_function_association = ["${aws_lambda_function.rewrite.qualified_arn}"]
+  lambda_function_association = [{
+    lambda_arn = "${aws_lambda_function.rewrite.qualified_arn}"
+    event_type = "origin-request"
+  }]
 }
