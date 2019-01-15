@@ -3,7 +3,7 @@ version: 2
 references:
 
 base_image: &base_image
-  hashicorp/terraform
+  hashicorp/terraform:light
 
 working_directory: &working_directory
   ~/cache
