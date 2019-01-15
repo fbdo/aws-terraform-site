@@ -60,14 +60,15 @@ resource "aws_iam_role_policy_attachment" "basic" {
 }
 
 module "cdn" {
-  source                      = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
-  namespace                   = "website"
-  stage                       = "prod"
-  name                        = "fabiooliveira"
-  aliases                     = ["www.fabiooliveira.me", "fabiooliveira.me"]
-  parent_zone_id              = "Z2T01GNL4E6WCM"
-  compress                    = true
-  viewer_protocol_policy      = "allow-all"
+  source                 = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
+  namespace              = "website"
+  stage                  = "prod"
+  name                   = "fabiooliveira"
+  aliases                = ["www.fabiooliveira.me", "fabiooliveira.me"]
+  parent_zone_id         = "Z2T01GNL4E6WCM"
+  compress               = true
+  viewer_protocol_policy = "allow-all"
+
   lambda_function_association = [{
     lambda_arn = "${aws_lambda_function.rewrite.qualified_arn}"
     event_type = "origin-request"
