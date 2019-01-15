@@ -50,7 +50,7 @@ data "aws_iam_policy_document" "lambda" {
 }
 
 resource "aws_iam_role" "main" {
-  name_prefix        = "${var.app_name}"
+  name_prefix        = "fabiooliveira.me_lambda_index_url_rewrite"
   assume_role_policy = "${data.aws_iam_policy_document.lambda.json}"
 }
 
