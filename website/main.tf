@@ -67,7 +67,7 @@ module "cdn" {
   aliases                = ["www.fabiooliveira.me", "fabiooliveira.me"]
   parent_zone_id         = "Z2T01GNL4E6WCM"
   compress               = true
-  viewer_protocol_policy = "allow-all"
+  viewer_protocol_policy = "redirect-to-https"
 
   /*
   lambda_function_association = [{
