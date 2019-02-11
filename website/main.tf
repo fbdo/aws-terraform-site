@@ -14,7 +14,7 @@ terraform {
 
 data "archive_file" "rewrite" {
   type        = "zip"
-  output_path = "${path.module}/.zip/rewrite.zip"
+  output_path = "build/rewrite.zip"
 
   source {
     filename = "lambda_index_url_rewrite.js"
