@@ -15,11 +15,7 @@ terraform {
 data "archive_file" "rewrite" {
   type        = "zip"
   output_path = "build/rewrite.zip"
-
-  source {
-    filename = "lambda_index_url_rewrite.js"
-    content  = "${file("files/lambda_index_url_rewrite.js")}"
-  }
+  source_file = "files/lambda_index_url_rewrite.js"
 }
 
 resource "aws_lambda_function" "rewrite" {
