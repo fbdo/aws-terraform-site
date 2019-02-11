@@ -102,6 +102,7 @@ jobs:
           root: *working_directory
           paths:
             - terraform.plan
+            - website/build/rewrite.zip
 
   apply:
     <<: *apply_job
