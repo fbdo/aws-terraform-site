@@ -65,10 +65,8 @@ module "cdn" {
   compress               = true
   viewer_protocol_policy = "redirect-to-https"
 
-  /*
   lambda_function_association = [{
     lambda_arn = "${aws_lambda_function.rewrite.qualified_arn}"
     event_type = "origin-request"
   }]
-  */
 }
