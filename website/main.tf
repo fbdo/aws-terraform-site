@@ -24,7 +24,7 @@ data "archive_file" "rewrite" {
 }
 
 resource "aws_lambda_function" "rewrite" {
-  provider = "aws.use1"
+  provider         = "aws.use1"
   function_name    = "lambda_index_url_rewrite"
   filename         = "${data.archive_file.rewrite.output_path}"
   source_code_hash = "${data.archive_file.rewrite.output_base64sha256}"
