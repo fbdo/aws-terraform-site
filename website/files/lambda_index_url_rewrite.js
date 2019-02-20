@@ -9,7 +9,7 @@ exports.handler = (event, context, callback) => {
     var olduri = request.uri;
 
     // Match any '/' that occurs at the end of a URI. Replace it with a default index
-    var newuri = olduri.replace(/\/$/, '\/index.html');
+    var newuri = olduri.replace(/\/$/, '\.html');
     
     // Log the URI as received by CloudFront and the new URI to be used to fetch from origin
     console.log("Old URI: " + olduri);

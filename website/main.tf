@@ -72,7 +72,7 @@ module "cdn" {
   viewer_protocol_policy = "redirect-to-https"
 
   lambda_function_association = [{
-    lambda_arn = "arn:aws:lambda:us-east-1:144289250204:function:lambda_index_url_rewrite:1"
+    lambda_arn = "arn:aws:lambda:us-east-1:144289250204:function:lambda_index_url_rewrite:2"
     event_type = "origin-request"
   }]
 }
