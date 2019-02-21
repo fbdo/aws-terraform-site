@@ -61,6 +61,19 @@ resource "aws_iam_role_policy_attachment" "basic" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_acm_certificate" "cert" {
+  domain_name       = "fabiooliveira.me"
+  validation_method = "DNS"
+
+  tags = {
+    Environment = "prod"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 module "cdn" {
   source                 = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
   namespace              = "website"
