@@ -85,7 +85,7 @@ module "cdn" {
   compress               = true
   viewer_protocol_policy = "redirect-to-https"
 
-  #acm_certificate_arn    = "${aws_acm_certificate.cert.arn}"
+  acm_certificate_arn    = "${aws_acm_certificate.cert.arn}"
 
   lambda_function_association = [{
     lambda_arn = "arn:aws:lambda:us-east-1:144289250204:function:lambda_index_url_rewrite:3"
