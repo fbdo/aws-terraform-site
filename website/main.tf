@@ -85,7 +85,9 @@ module "cdn" {
   parent_zone_id         = "Z2T01GNL4E6WCM"
   compress               = true
   viewer_protocol_policy = "redirect-to-https"
+  cors_allowed_headers   = ["Access-Control-Allow-Origin"]
   cors_allowed_origins   = ["www.fabiooliveira.me", "fabiooliveira.me"]
+  cors_allowed_methods   = ["GET"]
 
   acm_certificate_arn = "${aws_acm_certificate.cert.arn}"
 
