@@ -61,6 +61,21 @@ resource "aws_iam_role_policy_attachment" "basic" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_acm_certificate" "cert" {
+  provider                  = "aws.use1"
+  domain_name               = "fabiooliveira.me"
+  validation_method         = "DNS"
+  subject_alternative_names = ["www.fabiooliveira.me"]
+
+  tags = {
+    Environment = "prod"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 module "cdn" {
   source                 = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
   namespace              = "website"
@@ -71,6 +86,8 @@ module "cdn" {
   compress               = true
   viewer_protocol_policy = "redirect-to-https"
   cors_allowed_origins   = ["www.fabiooliveira.me", "fabiooliveira.me"]
+
+  acm_certificate_arn = "${aws_acm_certificate.cert.arn}"
 
   lambda_function_association = [{
     lambda_arn = "arn:aws:lambda:us-east-1:144289250204:function:lambda_index_url_rewrite:3"
