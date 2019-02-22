@@ -70,6 +70,7 @@ module "cdn" {
   parent_zone_id         = "Z2T01GNL4E6WCM"
   compress               = true
   viewer_protocol_policy = "redirect-to-https"
+  cors_allowed_origins   = ["www.fabiooliveira.me", "fabiooliveira.me"]
 
   lambda_function_association = [{
     lambda_arn = "arn:aws:lambda:us-east-1:144289250204:function:lambda_index_url_rewrite:3"
