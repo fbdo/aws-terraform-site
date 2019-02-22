@@ -62,9 +62,10 @@ resource "aws_iam_role_policy_attachment" "basic" {
 }
 
 resource "aws_acm_certificate" "cert" {
-  provider          = "aws.use1"
-  domain_name       = "fabiooliveira.me"
-  validation_method = "DNS"
+  provider                  = "aws.use1"
+  domain_name               = "fabiooliveira.me"
+  validation_method         = "DNS"
+  subject_alternative_names = ["www.fabiooliveira.me"]
 
   tags = {
     Environment = "prod"
